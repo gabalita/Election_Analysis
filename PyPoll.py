@@ -54,14 +54,27 @@ with open(file_to_load) as election_data:
         # Add a vote to that candidate
         candidate_votes[candidate_name] += 1
 
+with open(file_to_save, 'w') as txt_file:
+
+    # Print the final vote count to the terminal.
+    election_results = (
+        f"\nElection Results\n"
+        f"-------------------------\n"
+        f"Total Votes: {total_votes:,}\n"
+        f"-------------------------\n")
+    print(election_results, end="")
+        # Save the final vote count to the text file.
+    txt_file.write(election_results)
+
 # Code to calculate vote percentage for each candidate
 
     for candidate_name in candidate_votes:
         votes = candidate_votes[candidate_name]
         vote_percentage = float(votes) / float(total_votes) * 100 
+
 # To do: print out each candidate's name, vote count, and percentage of
 # votes to the terminal.
-        print(f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
+#print(f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
 
         if (votes > winning_count) and (vote_percentage > winning_percentage):
             winning_count = votes
@@ -74,12 +87,22 @@ with open(file_to_load) as election_data:
             f"Winning Vote Count: {winning_count:,}\n"
             f"Winning Percentage: {winning_percentage:.1f}%\n"
             f"-------------------------\n")
-print(winning_candidate_summary)
+# print(winning_candidate_summary)
+
+        candidate_results = (f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
+        # Print each candidate, their voter count, and percentage to the terminal.
+        print(candidate_results)
+        #  Save the candidate results to our text file.
+        txt_file.write(candidate_results)  
+
+    # Save the winning candidate's name to the text file.
+    txt_file.write(winning_candidate_summary)
+        
 
 
-
-
-# Method 1: Create new dictionary for candidate (key) + % of votes (value)
+     
+# Gabby's Method for calculating candidate percentage
+# Create new dictionary for candidate (key) + % of votes (value)
     #candidate_perc = {}
 
     #for i in range(len(candidate_options)):
