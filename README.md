@@ -44,6 +44,6 @@ The county with largest number of votes was Denver with 306,055 votes.
  
 ## Election-Audit Summary
 
-We encourage the election commission to reuse this Python script for other election tabulations and analysis in the future. In order to work, analysts will need to modify the file paths of the CSV/txt.files that the code is initially reading and writing too. Depending on how the election data is stored, they also may need to change the indexing for the county and candidate variables in the for loop. After these adjustments, the script will save the election board time and money as well. 
+We encourage the election commission to reuse this Python script for other election tabulations and analysis in the future. In order to work, analysts will need to modify the file paths of the CSV/txt.files that the code is initially reading and writing too. Depending on how the election data is stored, they also may need to change the indexing for the county and candidate variables in the for loop. After these adjustments, the script will save the election board time and money. 
 
 
